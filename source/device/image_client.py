@@ -12,7 +12,6 @@ import matplotlib.image as mpimg
 
 class ImageClient(O2x5xxPCICDevice):
 	def __init__(self, address, port):
-		print("ImageClient")
 		super(ImageClient, self).__init__(address, port)
 
 			# disable all result output
