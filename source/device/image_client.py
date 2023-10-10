@@ -12,20 +12,21 @@ import matplotlib.image as mpimg
 
 class ImageClient(O2x5xxPCICDevice):
 	def __init__(self, address, port):
+		print("ImageClient")
 		super(ImageClient, self).__init__(address, port)
 
-		# disable all result output
+			# disable all result output
 		# self.turn_process_interface_output_on_or_off(0)
 
-		# format string for all images
+			# format string for all images
 		# answer = self.upload_process_interface_output_configuration(images_config)
 		# if answer != "*":
 		# 	raise
 
-		# enable result output again
+			# enable result output again
 		#self.turn_process_interface_output_on_or_off(1)
 
-		# read the image ids
+			# read the image ids
 		#self.image_IDs = self.read_image_ids()
 
 		# read first frames
