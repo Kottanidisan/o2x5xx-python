@@ -12,10 +12,12 @@ class Client(object):
     def __init__(self, address, port):
         # open raw socket
         self.pcicSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.pcicSocket.connect((address, port))
+        #self.pcicSocket.connect((address, port))
         self.recv_counter = 0
         self.debug = False
         self.debugFull = False
+        self.__address__ = address
+        self.__port__ = port
 
     def __del__(self):
         self.close()
@@ -44,6 +46,17 @@ class Client(object):
         """
         self.pcicSocket.close()
 
+    def connect(self):
+        self.pcicSocket.connect((self.__address__, self.__port__))
+
+    def disconnect(self):
+        self.pcicSocket.close()
+
+    def __enter__(self):
+        self.connect()
+    
+    def __exit__(self):
+        self.disconnect()
 
 class PCICV3Client(Client):
     def read_next_answer(self):
